@@ -7,32 +7,32 @@
   <div id="divCadastroUsuario">
     <ion-label>Cadastro de Usuário</ion-label>
   </div>
-  <br>
+  <br>  
 
-  <ion-item color="secondary">
-    <ion-label position="floating">Nome</ion-label>
-    <ion-input></ion-input>
+  <ion-item color="medium">
+    <ion-label position="center"></ion-label>
+    <ion-input placeholder="Nome" type="text"></ion-input>
   </ion-item>
   <br>
 
-  <ion-item color="secondary">
-    <ion-label position="floating">Telefone</ion-label>
-    <ion-input></ion-input>
+  <ion-item color="medium">
+    <ion-label position="center"></ion-label>
+    <ion-input type="Telefone" placeholder="Telefone"></ion-input>
   </ion-item>
   <br>
 
-  <ion-item color="secondary">
-    <ion-label position="floating">E-mail</ion-label>
-    <ion-input #userEmail required></ion-input>
+  <ion-item color="medium">
+    <ion-label position="center"></ion-label>
+    <ion-input type="email" placeholder="Email" #userEmail required></ion-input>
   </ion-item>
   <br>
 
-  <ion-item color="secondary">
-    <ion-label position="floating">Senha</ion-label>
-    <ion-input type="password" #userPwd required></ion-input>
+  <ion-item color="medium">
+    <ion-label position="center"></ion-label>
+    <ion-input type="password" placeholder="Senha" #userPwd required></ion-input>
   </ion-item>
   <br>
 
-  <ion-button expand="block" size="small" (click)="authService.SignUp(userEmail.value, userPwd.value)">Cadastrar
+  <ion-button color="light" expand="block" size="small" (click)="authService.SignUp(userEmail.value, userPwd.value)">Cadastrar
   </ion-button>
 </ion-content>

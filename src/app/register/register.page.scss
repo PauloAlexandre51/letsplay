@@ -7,13 +7,14 @@ ion-item {
     height: 50px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 20px;
+    border-radius: 50px;
 }
 
 ion-button {
     width: 150px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 100px;
 }
 
 #divCadastroUsuario {
@@ -21,6 +22,9 @@ ion-button {
     margin-top: 20%;
     font-size: 1.5rem;
     font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
+    font-weight: bold;    
+    background-color:rgba(190, 190, 190, 0.267);
+    width: 100%;
     color: white;
+    opacity: 90%;
 }

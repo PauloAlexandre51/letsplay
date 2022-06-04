@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
+  private autenticado: boolean = false;
   userData: any; // Save logged in user data
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -37,14 +38,19 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          if (email == 'admin@admin.com')
+          if (email == 'admin@admin.com'){
+            this.setAutenticado(true);
             this.router.navigate(['/home-admin']);
-          else
+          }
+          else{
+            this.setAutenticado(true);
             this.router.navigate(['/home']);
+          }
         });
         this.SetUserData(result.user);
       })
       .catch((error) => {
+        this.setAutenticado(false);
         window.alert(error.message);
       });
   }
@@ -133,5 +139,13 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['/login']);
     });
+  }
+
+  setAutenticado(valor: boolean){
+    this.autenticado = valor;
+  }
+
+  isAutenticado() {
+    return this.autenticado;
   }
 }

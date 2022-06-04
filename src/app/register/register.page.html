@@ -35,4 +35,6 @@
 
   <ion-button color="light" expand="block" size="small" (click)="authService.SignUp(userEmail.value, userPwd.value)">Cadastrar
   </ion-button>
+  <br>
+  <ion-button expand="block" size="small" color="danger" [routerLink]="['/login']">Cancelar</ion-button>
 </ion-content>

@@ -8,13 +8,15 @@
 
   <ion-item color="medium">
     <ion-label position="center"></ion-label>
-    <ion-input placeholder="E-mail" maxlength="255" text-align="center" type="email" mask="E-mail" autocomplete="email"></ion-input>
-  </ion-item>  
+    <ion-input #userName required placeholder="E-mail" maxlength="255" text-align="center" type="email" mask="E-mail"
+      autocomplete="email"></ion-input>
+  </ion-item>
 
   <br>
   <ion-item color="medium">
     <ion-label position="center"></ion-label>
-    <ion-input placeholder="Senha" type="password" text="Password" text-align="center"  #userPassword required></ion-input>
+    <ion-input placeholder="Senha" type="password" text="Password" text-align="center" #userPassword required>
+    </ion-input>
   </ion-item>
 
   <br>

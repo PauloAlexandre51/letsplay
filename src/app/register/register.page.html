@@ -9,32 +9,55 @@
   </div>
   <br>  
 
-  <ion-item color="medium">
-    <ion-label position="center"></ion-label>
-    <ion-input placeholder="Nome" type="text"></ion-input>
-  </ion-item>
-  <br>
+  <form [formGroup]="cadastroUsuario" (ngSubmit)="submitForm()" novalidate>
+    <ion-item color="medium">
+      <ion-label position="center"></ion-label>
+      <ion-input placeholder="Nome" type="text" formControlName="nome"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nome.errors?.required">
+      Nome é obrigatorio.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nome.errors?.minlength">
+      No mínimo 3 caracteres.
+    </span>
+    <br>
+  
+    <ion-item color="medium">
+      <ion-label position="center"></ion-label>
+      <ion-input type="Telefone" placeholder="Telefone" formControlName="telefone"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.telefone.errors?.required">
+      telefone é obrigatorio.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.telefone.errors?.pattern">
+      Apenas números.
+    </span>
+    <br>
+  
+    <ion-item color="medium">
+      <ion-label position="center"></ion-label>
+      <ion-input type="email" placeholder="Email" formControlName="userEmail" #userEmail required></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.userEmail.errors?.required">
+      Email é obrigatorio.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.userEmail.errors?.pattern">
+      Informe um email válido.
+    </span>
+    <br>
+  
+    <ion-item color="medium">
+      <ion-label position="center"></ion-label>
+      <ion-input type="password" placeholder="Senha" formControlName="senha" formControlName="userPwd" #userPwd required></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.userPwd.errors?.required">
+      Senha é obrigatório.
+    </span>
+    <br>
+  
+    <ion-button type="submit"  color="light" expand="block" size="small">Cadastrar</ion-button>
+    <br>
+    <ion-button expand="block" size="small" color="danger" [routerLink]="['/login']">Cancelar</ion-button>
+  </form>
 
-  <ion-item color="medium">
-    <ion-label position="center"></ion-label>
-    <ion-input type="Telefone" placeholder="Telefone"></ion-input>
-  </ion-item>
-  <br>
-
-  <ion-item color="medium">
-    <ion-label position="center"></ion-label>
-    <ion-input type="email" placeholder="Email" #userEmail required></ion-input>
-  </ion-item>
-  <br>
-
-  <ion-item color="medium">
-    <ion-label position="center"></ion-label>
-    <ion-input type="password" placeholder="Senha" #userPwd required></ion-input>
-  </ion-item>
-  <br>
-
-  <ion-button color="light" expand="block" size="small" (click)="authService.SignUp(userEmail.value, userPwd.value)">Cadastrar
-  </ion-button>
-  <br>
-  <ion-button expand="block" size="small" color="danger" [routerLink]="['/login']">Cancelar</ion-button>
 </ion-content>

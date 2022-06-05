@@ -16,7 +16,7 @@
       <ion-input [(ngModel)]="quadra.nome" type="text" formControlName="nome"></ion-input>
     </ion-item>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nome.errors?.required">
-      Name é obrigatorio.
+      Nome é obrigatorio.
     </span>
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nome.errors?.minlength">
       No mínimo 3 caracteres.

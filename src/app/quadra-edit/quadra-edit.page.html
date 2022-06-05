@@ -4,61 +4,94 @@
 
 <ion-content>
 
-
   <div id="divCadastroQuadra">
     <ion-label>Editar Quadra</ion-label>
   </div>
   <br>
 
-  <ion-item color="secondary" class="label">
-    <ion-label position="floating">{{quadra.nome}}</ion-label>
-    <ion-input [(ngModel)]="quadraEdit.nome"></ion-input>
-  </ion-item>
-  <br>
+  <form [formGroup]="editarQuadra" (ngSubmit)="submitForm()" novalidate>
 
-  <ion-item color="secondary" class="label">
-    <ion-label position="floating">{{quadra.logradouro}}</ion-label>
-    <ion-input [(ngModel)]="quadraEdit.logradouro"></ion-input>
-  </ion-item>
-  <br>
+    <ion-item color="secondary" class="label">
+      <ion-label position="floating">{{quadra.nome}}</ion-label>
+      <ion-input [(ngModel)]="quadraEdit.nome" formControlName="nome"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nome.errors?.required">
+      Nome é obrigatorio.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.nome.errors?.minlength">
+      No mínimo 3 caracteres.
+    </span>
+    <br>
 
-  <ion-item color="secondary" class="label">
-    <ion-label position="floating">{{quadra.bairro}}</ion-label>
-    <ion-input [(ngModel)]="quadraEdit.bairro"></ion-input>
-  </ion-item>
-  <br>
+    <ion-item color="secondary" class="label">
+      <ion-label position="floating">{{quadra.logradouro}}</ion-label>
+      <ion-input [(ngModel)]="quadraEdit.logradouro" formControlName="logradouro"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.logradouro.errors?.required">
+      Logradouro é obrigatorio.
+    </span>
+    <br>
 
-  <ion-item color="secondary" class="label">
-    <ion-label position="floating">{{quadra.cidade}}</ion-label>
-    <ion-input [(ngModel)]="quadraEdit.cidade"></ion-input>
-  </ion-item>
-  <br>
+    <ion-item color="secondary" class="label">
+      <ion-label position="floating">{{quadra.bairro}}</ion-label>
+      <ion-input [(ngModel)]="quadraEdit.bairro" formControlName="bairro"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.bairro.errors?.required">
+      bairro é obrigatorio.
+    </span>
+    <br>
 
-  <ion-item color="secondary" class="label">
-    <ion-label position="floating">{{quadra.esporte}}</ion-label>
-    <ion-input [(ngModel)]="quadraEdit.esporte"></ion-input>
-  </ion-item>
-  <br>
+    <ion-item color="secondary" class="label">
+      <ion-label position="floating">{{quadra.cidade}}</ion-label>
+      <ion-input [(ngModel)]="quadraEdit.cidade" formControlName="cidade"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.cidade.errors?.required">
+      cidade é obrigatorio.
+    </span>
+    <br>
 
-  <ion-item color="secondary" class="label">
-    <ion-label position="floating">{{quadra.valorHora}}</ion-label>
-    <ion-input [(ngModel)]="quadraEdit.valorHora"></ion-input>
-  </ion-item>
-  <br>
+    <ion-item color="secondary" class="label">
+      <ion-label position="floating">{{quadra.esporte}}</ion-label>
+      <ion-input [(ngModel)]="quadraEdit.esporte" formControlName="esporte"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.esporte.errors?.required">
+      esporte é obrigatorio.
+    </span>
+    <br>
 
-  <ion-item color="secondary" class="label">
-    <ion-label position="floating">{{quadra.telefone}}</ion-label>
-    <ion-input [(ngModel)]="quadraEdit.telefone"></ion-input>
-  </ion-item>
-  <br>
+    <ion-item color="secondary" class="label">
+      <ion-label position="floating">{{quadra.valorHora}}</ion-label>
+      <ion-input [(ngModel)]="quadraEdit.valorHora" formControlName="valorHora"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.valorHora.errors?.required">
+      Valor Hora é obrigatorio.
+    </span>
+    <br>
 
-  <ion-item color="secondary" class="descricao">
-    <ion-label position="floating">{{quadra.descricao}}</ion-label>
-    <ion-textarea name="descricao" [(ngModel)]="quadraEdit.descricao"></ion-textarea>
-  </ion-item>
+    <ion-item color="secondary" class="label">
+      <ion-label position="floating">{{quadra.telefone}}</ion-label>
+      <ion-input [(ngModel)]="quadraEdit.telefone" formControlName="telefone"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.telefone.errors?.required">
+      telefone é obrigatorio.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.telefone.errors?.pattern">
+      Apenas números.
+    </span>
+    <br>
+    <br>
 
-  <ion-button (click)="editar()" expand="block" size="small">Salvar</ion-button>
-  <ion-button (click)="deletar()" color="danger" expand="block" size="small">Deletar</ion-button>
+    <ion-item color="secondary" class="descricao">
+      <ion-label position="floating">{{quadra.descricao}}</ion-label>
+      <ion-textarea name="descricao" [(ngModel)]="quadraEdit.descricao" formControlName="descricao"></ion-textarea>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.descricao.errors?.required">
+      descricao é obrigatorio.
+    </span>
+    <br>
 
+    <ion-button type="submit" expand="block" size="small">Salvar</ion-button>
+    <ion-button (click)="deletar()" color="danger" expand="block" size="small">Deletar</ion-button>
+  </form>
 
 </ion-content>

@@ -1,6 +1,6 @@
-ion-content  {
+ion-content {
     --background: url("./../../assets/img/backgroundapp.jpeg") no-repeat center center / cover !important;
-  }
+}
 
 .label {
     width: 250px;
@@ -34,4 +34,20 @@ form {
     margin-right: auto;
     border-radius: 20px;
 
+}
+
+#uploadimagem {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#botaofoto {
+    margin-left: 15%;
+    margin-right: 50%;
+}
+
+span {
+    color: red;
+    font-weight: bold;
 }

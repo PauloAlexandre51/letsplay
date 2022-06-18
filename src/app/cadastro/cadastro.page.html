@@ -67,6 +67,9 @@
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.valorHora.errors?.required">
       Valor Hora é obrigatorio.
     </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.telefone.errors?.pattern">
+      Apenas números.
+    </span>
     <br>
 
     <ion-item color="secondary" class="label">
@@ -88,6 +91,21 @@
     <span class="error ion-padding" *ngIf="isSubmitted && errorControl.descricao.errors?.required">
       descricao é obrigatorio.
     </span>
+    <br>
+
+    <ion-item color="secondary" class="label">
+      <div id="uploadimagem">
+        <ion-img [src]="fotoServ?.foto?.webviewpath">
+        </ion-img>
+
+        <ion-button id="botaofoto" (click)="acionarCamera()">
+          <ion-icon slot="icon-only" name="camera">
+          </ion-icon>
+        </ion-button>
+      </div>
+
+    </ion-item>
+
     <br>
 
     <ion-button type="submit" expand="block" size="small">Cadastrar</ion-button>

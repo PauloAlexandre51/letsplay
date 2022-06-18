@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Quadra } from '../model/quadra.model';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import id from 'date-fns/locale/id';
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +41,9 @@ export class QuadrasService {
             esporte: quadra['esporte'],
             valorHora: quadra['valorHora'],
             telefone: quadra['telefone'],
-            descricao: quadra['descricao']
+            descricao: quadra['descricao'],
+            foto: quadra['foto'],
+            dataInclusao: quadra['dataInclusao']
           };
         }
 

@@ -1,7 +1,8 @@
 {
   "name": "letsplay",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }

@@ -36,7 +36,9 @@ export class HomePage implements OnInit {
           esporte: item.payload.doc.data()['esporte'],
           valorHora: item.payload.doc.data()['valorHora'],
           telefone: item.payload.doc.data()['telefone'],
-          descricao: item.payload.doc.data()['descricao']
+          descricao: item.payload.doc.data()['descricao'],
+          foto: item.payload.doc.data()['foto'],
+          dataInclusao: item.payload.doc.data()['dataInclusao']
         };
       });
     });

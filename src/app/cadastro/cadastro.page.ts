@@ -6,6 +6,8 @@ import { Quadra } from 'src/app/model/quadra.model';
 import { QuadrasService } from 'src/app/services/quadras.service';
 import { Esporte } from '../model/esporte.model';
 import { EsporteService } from '../services/esporte/esporte.service';
+import { FotoService } from 'src/app/services/foto.service';
+import { getDate } from 'date-fns';
 
 @Component({
   selector: 'app-cadastro',
@@ -20,7 +22,11 @@ export class CadastroPage implements OnInit {
   cadastroQuadra: FormGroup;
   isSubmitted = false;
 
-  constructor(private quadraService: QuadrasService, private rota: Router, private EsporteService: EsporteService, public formBuilder: FormBuilder) { }
+  constructor(private quadraService: QuadrasService,
+    private rota: Router,
+    private EsporteService: EsporteService,
+    public formBuilder: FormBuilder,
+    private fotoServ: FotoService) { }
 
   ngOnInit() {
     this.esportes = this.EsporteService.getEsporte();
@@ -31,17 +37,24 @@ export class CadastroPage implements OnInit {
       bairro: ['', [Validators.required]],
       cidade: ['', [Validators.required]],
       esporte: ['', [Validators.required]],
-      valorHora: ['', [Validators.required]],
+      valorHora: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       telefone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       descricao: ['', [Validators.required]]
     })
+
+
   }
 
   public cadastrar() {
-    this.quadraService.add(this.quadra).then((resposta) => {
-      console.log(resposta);
-      this.rota.navigate(['/home-admin']);
-    });
+    this.fotoServ.upload('quadra-').then((ref) => {
+      ref.getDownloadURL().subscribe((url) => {
+        this.quadra.foto = url;
+        this.quadraService.add(this.quadra)
+          .then((resposta: any) => {
+            this.rota.navigate(['/home-admin']);
+          });
+      });
+    })
   }
 
   get errorControl() {
@@ -56,5 +69,9 @@ export class CadastroPage implements OnInit {
     } else {
       this.cadastrar();
     }
+  }
+
+  public acionarCamera() {
+    this.fotoServ.tirarFoto();
   }
 }

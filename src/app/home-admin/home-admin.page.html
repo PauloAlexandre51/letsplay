@@ -33,9 +33,7 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-label>Valor Hora R$: </ion-label>
-        <ion-input type="" [ngModel]="obj.valorHora">
-        </ion-input>
+        <ion-label>Valor Hora: {{obj.valorHora | currency:"BRL" }} </ion-label>
       </ion-item>
     </ion-card-content>
   </ion-card>

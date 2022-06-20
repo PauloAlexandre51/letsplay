@@ -45,6 +45,6 @@ export class HomePage implements OnInit {
   }
   public getByEsportes() {
     //this.quadras = this.quadraService.getByEsporte(this.selected);
-    console.log(this.quadras);
+    // console.log(this.quadras);
   }
 }

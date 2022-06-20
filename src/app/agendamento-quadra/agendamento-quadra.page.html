@@ -29,11 +29,11 @@
   <ion-label class="ion-padding" id="lbCalendario">Calendário</ion-label>
 
   <ion-item class="ion-padding">
-    <ion-datetime displayFormat="YYYY-MMMM-D" pickerFormat="DD MM YYYY">
+    <ion-datetime [(ngModel)]="data" displayFormat="YYYY-MMMM-D" pickerFormat="DD MM YYYY">
     </ion-datetime>
   </ion-item>
 
   <ion-label class="ion-padding" id="lbCalendario">Detalhes do Agendamento</ion-label>
-  <ion-button color="primary" id="lbCalendario" [routerLink]="['/home']">Confirmar Agendamento</ion-button>
+  <ion-button color="primary" id="lbCalendario" [routerLink]="['/home']" (click)="Agendar()">Confirmar Agendamento</ion-button>
   <ion-button color="danger" id="lbCalendario" [routerLink]="['/home']">Cancelar</ion-button>
 </ion-content>

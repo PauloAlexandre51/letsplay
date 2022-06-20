@@ -36,7 +36,8 @@ export class AuthService {
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
-      .then((result) => {
+      .then((result) => {        
+        localStorage.setItem('email',email);
         this.ngZone.run(() => {
           if (email == 'admin@admin.com'){
             this.setAutenticado(true);

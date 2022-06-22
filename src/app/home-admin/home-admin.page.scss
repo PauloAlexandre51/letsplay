@@ -8,10 +8,10 @@ ion-icon {
 }
 
 ion-footer {
-    display: block;
+    display: inline;
     padding: 3px;
     background-color: rgb(36, 36, 36);
-    color: white;
+    color: rgb(255, 255, 255);
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -19,11 +19,13 @@ ion-footer {
 }
 
 ion-card {
-    background-color: greenyellow;
+    text-align: center;
+    background-color: rgb(168, 168, 168);
+    border-radius: 12%;
 }
 
 ion-card-title {
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 #calendar {

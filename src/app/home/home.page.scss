@@ -19,7 +19,7 @@ ion-footer {
 }
 
 ion-card {
-  background-color: greenyellow;
+  background-color: rgb(124, 124, 124);
 }
 
 ion-card-title {
@@ -34,25 +34,22 @@ ion-card-title {
   margin-left: 50px;
 }
 
-#esporte {
-  float: left;
-  width: 100px;
-  font-size: 12px;
-  background-color: black;
+#esporte {  
+  float: left;  
+  width: auto;
+  font-size: 18px;  
 }
 
-#cidade {
+#cidade {  
   float: left;
-  width: 100px;
-  font-size: 12px;
-  background-color: black;
+  width: auto;
+  font-size: 18px;  
 }
 
-#bairro {
+#bairro {  
   float: left;
-  width: 100px;
-  font-size: 12px;
-  background-color: black;
+  width: auto;
+  font-size: 18px;  
 }
 
 #listaQuadras {

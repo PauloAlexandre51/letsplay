@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
-    //canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: '',
@@ -24,22 +24,22 @@ const routes: Routes = [
   {
     path: 'cadastro',
     loadChildren: () => import('./cadastro/cadastro.module').then(m => m.CadastroPageModule),
-    //canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'quadra-edit/:id',
     loadChildren: () => import('./quadra-edit/quadra-edit.module').then(m => m.QuadraEditPageModule),
-    //canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'agendamento-quadra/:id',
     loadChildren: () => import('./agendamento-quadra/agendamento-quadra.module').then(m => m.AgendamentoQuadraPageModule),
-    //canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'home-admin',
     loadChildren: () => import('./home-admin/home-admin.module').then(m => m.HomeAdminPageModule),
-    //canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
 
 ];
